@@ -13,7 +13,10 @@ import com.ia.sharephotos.presentation.model.CommentModel;
 import com.ia.sharephotos.presentation.view.BaseFragment;
 import com.ia.sharephotos.presentation.view.adapters.CommentsAdapter;
 import org.fluttercode.datafactory.impl.DataFactory;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import butterknife.Bind;
 
@@ -61,14 +64,15 @@ public class DetailPhotoFragment extends BaseFragment {
     }
 
     private List<CommentModel> getData() {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         List<CommentModel> mCommentsList = new ArrayList<>();
         DataFactory mFactory = new DataFactory();
 
         for (int i = 1; i <= 15; i++) {
-            String name = mFactory.getFirstName() + " " + mFactory.getLastName();
+            String name = String.format("%s %s", mFactory.getFirstName(), mFactory.getLastName());
             int imagen = (i % 2 == 0) ? R.drawable.user1 : R.drawable.user2;
-            String comment = mFactory.getRandomText(50);
-            mCommentsList.add(new CommentModel(name, imagen, comment));
+            mCommentsList.add(new CommentModel(name, imagen, mFactory.getRandomText(50), formatter.format(mFactory.getBirthDate())));
         }
         return mCommentsList;
     }

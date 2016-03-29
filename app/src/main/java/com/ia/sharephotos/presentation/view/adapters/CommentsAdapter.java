@@ -35,6 +35,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.itemVi
         CommentModel item = mList.get(position);
         holder.mName.setText(item.getName());
         holder.mComment.setText(item.getComment());
+        holder.mPostTime.setText(item.getPost_time());
         holder.mImage.setImageResource(item.getImage());
     }
 
@@ -48,12 +49,14 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.itemVi
         public ImageView mImage;
         public TextView mComment;
         public TextView mName;
+        public TextView mPostTime;
 
         public itemViewHolder(View v) {
             super(v);
             mImage=(ImageView)v.findViewById(R.id.image);
             mName = (TextView) v.findViewById(R.id.name);
             mComment = (TextView) v.findViewById(R.id.comment);
+            mPostTime = (TextView) v.findViewById(R.id.post_time);
         }
     }
 }

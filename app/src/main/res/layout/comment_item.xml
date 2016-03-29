@@ -4,47 +4,59 @@
     android:id="@+id/classifiedContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:elevation="4dp"
-    card_view:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="4dp">
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="8dp">
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/user1" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <com.ia.sharephotos.presentation.view.widgets.SpTextView
                 android:id="@+id/name"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="name" />
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Name"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/name"
+                android:layout_centerVertical="true"
+                android:src="@drawable/user1" />
 
             <com.ia.sharephotos.presentation.view.widgets.SpTextView
                 android:id="@+id/comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="comment" />
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/image"
+                android:layout_weight="1"
+                android:text="comment"
+                android:textSize="16dp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
+        <com.ia.sharephotos.presentation.view.widgets.SpTextView
+            android:id="@+id/post_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="right"
+            android:text="29/03/2016"
+            android:textSize="12dp" />
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

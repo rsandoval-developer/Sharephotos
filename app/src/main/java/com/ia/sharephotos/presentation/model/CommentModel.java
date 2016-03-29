@@ -7,11 +7,13 @@ public class CommentModel {
     private String name;
     private int image;
     private String comment;
+    private String post_time;
 
-    public CommentModel(String name, int image, String comment) {
+    public CommentModel(String name, int image, String comment, String post_time) {
         this.name = name;
         this.image = image;
         this.comment = comment;
+        this.post_time = post_time;
     }
 
     public String getName() {
@@ -24,5 +26,9 @@ public class CommentModel {
 
     public String getComment() {
         return comment;
+    }
+
+    public String getPost_time() {
+        return post_time;
     }
 }
