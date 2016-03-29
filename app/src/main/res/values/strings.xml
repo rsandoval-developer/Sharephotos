@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SharePhotos</string>
+
+    <!-- MENU -->
+    <string name="drawer_open">Menú abierto</string>
+    <string name="drawer_close">Menú cerrado</string>
+    <string name="comentarios">Comentarios</string>
+    <string name="tabla_posiciones">Tabla de posiciones</string>
+</resources>
