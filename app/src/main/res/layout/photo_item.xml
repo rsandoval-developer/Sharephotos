@@ -30,7 +30,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="200dp"
                 android:layout_alignBottom="@+id/photo"
                 android:background="@drawable/gradient_photo"
                 android:gravity="center_vertical">
@@ -39,6 +39,8 @@
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
                     android:text="Name"
                     android:textColor="@color/white"

@@ -7,6 +7,6 @@
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#FF3300</color>
     <color name="white">#FFFFFF</color>
-    <color name="ransparent_black_low">#200E0E0E</color>
-    <color name="ransparent_black_high">#000000</color>
+    <color name="ransparent_black_low">#400E0E0E</color>
+    <color name="ransparent_black_high">#500E0E0E</color>
 </resources>
