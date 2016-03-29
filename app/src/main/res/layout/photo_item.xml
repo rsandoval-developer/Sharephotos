@@ -7,26 +7,51 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     android:elevation="4dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="4dp"
+    card_view:cardUseCompatPadding="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:minHeight="200dp">
 
-        <ImageView
-            android:id="@+id/photo"
+        <RelativeLayout
+            android:id="@+id/photo_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/foto3" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/foto3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignBottom="@+id/photo"
+                android:background="@drawable/gradient_photo"
+                android:gravity="center_vertical">
+
+                <com.ia.sharephotos.presentation.view.widgets.SpTextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Name"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/photo"
+            android:layout_below="@+id/photo_container"
             android:orientation="horizontal"
             android:padding="5dp">
 

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.ia.sharephotos.R;
 import com.ia.sharephotos.presentation.model.PhotoModel;
 import com.ia.sharephotos.presentation.view.activities.DetailPhotoActivity;
@@ -36,6 +38,7 @@ public class HomeAdaper extends RecyclerView.Adapter<HomeAdaper.itemViewHolder> 
     public void onBindViewHolder(itemViewHolder holder, int position) {
         final PhotoModel item = mLlist.get(position);
         holder.mPhoto.setImageResource(item.getPhoto());
+        holder.mName.setText(item.getNameUser());
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,11 +58,13 @@ public class HomeAdaper extends RecyclerView.Adapter<HomeAdaper.itemViewHolder> 
 
         public View mView;
         public ImageView mPhoto;
+        public TextView mName;
 
         public itemViewHolder(View v) {
             super(v);
             mView = v;
             mPhoto = (ImageView) v.findViewById(R.id.photo);
+            mName=(TextView)v.findViewById(R.id.name);
         }
     }
 }

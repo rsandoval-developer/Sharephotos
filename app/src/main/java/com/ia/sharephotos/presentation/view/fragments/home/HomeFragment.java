@@ -11,10 +11,9 @@ import com.ia.sharephotos.R;
 import com.ia.sharephotos.presentation.model.PhotoModel;
 import com.ia.sharephotos.presentation.view.BaseFragment;
 import com.ia.sharephotos.presentation.view.adapters.HomeAdaper;
-
+import org.fluttercode.datafactory.impl.DataFactory;
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.Bind;
 
 /**
@@ -22,14 +21,11 @@ import butterknife.Bind;
  */
 public class HomeFragment extends BaseFragment {
 
-    private List<PhotoModel> mPhotosList = new ArrayList<>();
     private HomeAdaper mAdapter;
-
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
-
 
     @Bind(R.id.photos)
     RecyclerView mRecycler;
@@ -44,14 +40,25 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        mPhotosList.add(new PhotoModel(R.drawable.foto3,""));
-        mPhotosList.add(new PhotoModel(R.drawable.foto1,""));
-        mPhotosList.add(new PhotoModel(R.drawable.foto2,""));
-        mPhotosList.add(new PhotoModel(R.drawable.foto4,""));
-
-        mAdapter = new HomeAdaper(getActivity(), mPhotosList);
+        mAdapter = new HomeAdaper(getActivity(), getData());
         mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycler.setAdapter(mAdapter);
+    }
+
+    private List<PhotoModel> getData() {
+        List<PhotoModel> mPhotosList = new ArrayList<>();
+        mPhotosList.add(new PhotoModel(R.drawable.foto3, "", generateName()));
+        mPhotosList.add(new PhotoModel(R.drawable.foto1, "", generateName()));
+        mPhotosList.add(new PhotoModel(R.drawable.foto2, "", generateName()));
+        mPhotosList.add(new PhotoModel(R.drawable.foto4, "", generateName()));
+        mPhotosList.add(new PhotoModel(R.drawable.foto5, "", generateName()));
+        mPhotosList.add(new PhotoModel(R.drawable.foto7, "", generateName()));
+        mPhotosList.add(new PhotoModel(R.drawable.foto8, "", generateName()));
+        return mPhotosList;
+    }
+
+    private String generateName() {
+        DataFactory factory = new DataFactory();
+        return String.format("%s %s", factory.getFirstName(), factory.getLastName());
     }
 }

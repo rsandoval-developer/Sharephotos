@@ -7,10 +7,12 @@ public class PhotoModel {
 
     private int photo;
     private String comentario;
+    private String nameUser;
 
-    public PhotoModel(int photo, String comentario) {
+    public PhotoModel(int photo, String comentario, String nameUser) {
         this.photo = photo;
         this.comentario = comentario;
+        this.nameUser = nameUser;
     }
 
     public int getPhoto() {
@@ -19,5 +21,9 @@ public class PhotoModel {
 
     public String getComentario() {
         return comentario;
+    }
+
+    public String getNameUser() {
+        return nameUser;
     }
 }

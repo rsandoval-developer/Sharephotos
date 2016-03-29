@@ -27,7 +27,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:text="Name"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/image"
@@ -45,7 +45,7 @@
                 android:layout_toRightOf="@+id/image"
                 android:layout_weight="1"
                 android:text="comment"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -56,7 +56,7 @@
             android:layout_alignParentBottom="true"
             android:gravity="right"
             android:text="29/03/2016"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
