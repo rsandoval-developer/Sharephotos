@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.ia.sharephotos.R;
+import com.ia.sharephotos.presentation.view.activities.HomeActivity;
 import com.ia.sharephotos.presentation.view.activities.MyAlbumActivity;
 
 import java.util.List;
@@ -21,8 +23,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.itemViewHolder
     private Context mcContext;
     private List<MenuModel> mList;
     private MenuListener mListener;
+    private int selectedPos = 0;
 
-    public MenuAdapter(Context context,List<MenuModel> list, MenuListener listener) {
+    public MenuAdapter(Context context, List<MenuModel> list, MenuListener listener) {
         mcContext = context;
         mList = list;
         mListener = listener;
@@ -37,23 +40,30 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.itemViewHolder
     @Override
     public void onBindViewHolder(itemViewHolder holder, final int position) {
         MenuModel item = mList.get(position);
+        holder.itemView.setSelected(selectedPos == position);
         holder.mIcon.setImageResource(item.getIcon());
         holder.mName.setText(item.getTitle());
-
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 mListener.closeDrawers();
+                notifyItemChanged(selectedPos);
+                selectedPos = position;
+                notifyItemChanged(selectedPos);
 
                 switch (position) {
                     case 0:
-                        if (!(mcContext instanceof MyAlbumActivity)) {
-                            Intent intent = new Intent(mcContext, MyAlbumActivity.class);
+                        if (!(mcContext instanceof HomeActivity)) {
+                            Intent intent = new Intent(mcContext, HomeActivity.class);
                             mcContext.startActivity(intent);
                         }
                         break;
                     case 1:
+                        if (!(mcContext instanceof MyAlbumActivity)) {
+                            Intent intent = new Intent(mcContext, MyAlbumActivity.class);
+                            mcContext.startActivity(intent);
+                        }
                         break;
                 }
             }

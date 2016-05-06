@@ -25,6 +25,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:textColor="@color/text_black_high"
                 android:layout_marginLeft="10dp"
                 android:text="Name"
                 android:textSize="16sp" />
@@ -42,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:textColor="@color/text_black_high"
                 android:layout_toRightOf="@+id/image"
                 android:layout_weight="1"
                 android:text="comment"
@@ -54,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:textColor="@color/text_black_high"
             android:gravity="right"
             android:text="29/03/2016"
             android:textSize="12sp" />

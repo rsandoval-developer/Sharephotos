@@ -5,17 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/md_white_1000">
 
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
+            android:layout_below="@+id/toolbar"
             android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:id="@+id/statusBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/statusBarHeight"
+            android:background="?colorPrimaryDark" />
 
         <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/toolbar"
@@ -26,41 +31,33 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-        <FrameLayout
-            android:id="@+id/statusBar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/statusBarHeight"
-            android:background="?colorPrimaryDark" />
-
     </RelativeLayout>
 
 
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical">
 
+         <LinearLayout
+             android:id="@+id/container_toolbar"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical">
 
-   <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+             <include
+                 android:id="@+id/toolbar"
+                 layout="@layout/toolbar" />
 
-        <LinearLayout
-            android:id="@+id/container_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+         </LinearLayout>
 
-            <include
-                android:id="@+id/toolbar"
-                layout="@layout/toolbar" />
+         <FrameLayout
+             android:id="@+id/container"
+             android:layout_width="fill_parent"
+             android:layout_height="0dp"
+             android:layout_weight="1" />
 
-        </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/container"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-    </LinearLayout>-->
+     </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="@dimen/nav_drawer_width"
@@ -72,40 +69,43 @@
         <LinearLayout
             android:id="@+id/nav_header_container"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
+            android:paddingTop="@dimen/info_user_top"
+            android:paddingBottom="@dimen/info_user_bottom"
             android:gravity="center"
             android:orientation="horizontal">
 
-            <com.facebook.login.widget.ProfilePictureView
-                android:id="@+id/photo_user"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_profile" />
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/photo_user"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_profile"
+                    app:civ_border_color="@color/md_white_1000"
+                    app:civ_border_width=".5dp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:orientation="vertical">
-
-                <com.ia.sharephotos.presentation.view.widgets.SpTextView
-                    android:id="@+id/name_user"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yoni Santana"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="14sp" />
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
-                <com.ia.sharephotos.presentation.view.widgets.SpTextView
-                    android:id="@+id/email_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="yoni71290@gmail.com"
-                    android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    <com.ia.sharephotos.presentation.view.widgets.SpTextView
+                        android:id="@+id/name_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ismael Sandoval"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <com.ia.sharephotos.presentation.view.widgets.SpTextView
+                        android:id="@+id/email_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="isandoval@gmail.com"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
 
             </LinearLayout>
 

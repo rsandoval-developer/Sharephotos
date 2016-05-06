@@ -9,6 +9,9 @@
     <!-- MENU -->
     <string name="drawer_open">Menú abierto</string>
     <string name="drawer_close">Menú cerrado</string>
+    <string name="home">Home</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="bares">Bares</string>
     <string name="mi_album">Mi Album</string>
     <string name="tabla_posiciones">Tabla de posiciones</string>
 

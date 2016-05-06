@@ -1,20 +1,18 @@
 package com.ia.sharephotos.presentation.view;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
-import com.facebook.login.widget.ProfilePictureView;
 import com.ia.sharephotos.R;
 import com.ia.sharephotos.presentation.view.activities.LoginActivity;
 import com.ia.sharephotos.presentation.view.menu.MenuFragment;
@@ -22,6 +20,8 @@ import com.ia.sharephotos.presentation.view.menu.MenuListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BaseActivity extends AppCompatActivity implements MenuListener {
 
@@ -33,7 +33,7 @@ public class BaseActivity extends AppCompatActivity implements MenuListener {
     private ActionBarDrawerToggle mDrawerToggle;
     private TextView mNameUser;
     private TextView mEmailUser;
-    private ProfilePictureView mPhotoUser;
+    private CircleImageView mPhotoUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +42,9 @@ public class BaseActivity extends AppCompatActivity implements MenuListener {
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mPhotoUser=(ProfilePictureView)findViewById(R.id.photo_user);
-        mNameUser=(TextView)findViewById(R.id.name_user);
-        mEmailUser=(TextView)findViewById(R.id.email_user);
+        mPhotoUser = (CircleImageView) findViewById(R.id.photo_user);
+        mNameUser = (TextView) findViewById(R.id.name_user);
+        mEmailUser = (TextView) findViewById(R.id.email_user);
 
         mToolbar.setTitle(mTitle);
         setSupportActionBar(mToolbar);
@@ -85,7 +85,10 @@ public class BaseActivity extends AppCompatActivity implements MenuListener {
                         @Override
                         public void onCompleted(JSONObject object, GraphResponse response) {
                             try {
-                                mPhotoUser.setProfileId(object.getString("id"));
+                                Glide.with(BaseActivity.this)
+                                        .load("https://graph.facebook.com/" + object.getString("id") + "/picture?type=large")
+                                        .into(mPhotoUser);
+                                //mPhotoUser.setImageDrawable(object.getString("id"));
                                 mNameUser.setText(object.getString("first_name") + " " + object.getString("last_name"));
                                 mEmailUser.setText(object.getString("email"));
                             } catch (JSONException e) {
@@ -98,8 +101,8 @@ public class BaseActivity extends AppCompatActivity implements MenuListener {
             parameters.putString("fields", "id,name,first_name,last_name,email,gender");
             request.setParameters(parameters);
             request.executeAsync();
-        }else{
-            Intent intent=new Intent(this,LoginActivity.class);
+        } else {
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
         }
