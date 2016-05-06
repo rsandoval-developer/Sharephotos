@@ -8,9 +8,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/MyTheme">
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.view.activities.HomeActivity"
+            android:name=".presentation.view.activities.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +20,43 @@
         </activity>
 
         <activity
+            android:name=".presentation.view.activities.HomeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".presentation.view.activities.DetailPhotoActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".presentation.view.activities.MyAlbumActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".presentation.view.activities.CommentsActivity"
+            android:screenOrientation="portrait" />
+
+        <!--Facebook -->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name_facebook"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationName"
+            android:value="@string/app_name_facebook" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider777240102380666"
+            android:exported="true" />
+
+        <!-- End Facebook -->
+
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.ia.sharephotos.presentation.view.menu;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.ia.sharephotos.R;
+import com.ia.sharephotos.presentation.view.activities.MyAlbumActivity;
+
 import java.util.List;
 
 /**
@@ -34,7 +37,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.itemViewHolder
     @Override
     public void onBindViewHolder(itemViewHolder holder, final int position) {
         MenuModel item = mList.get(position);
-        holder.itemView.setId(item.getIcon());
+        holder.mIcon.setImageResource(item.getIcon());
         holder.mName.setText(item.getTitle());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +48,13 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.itemViewHolder
 
                 switch (position) {
                     case 0:
+                        if (!(mcContext instanceof MyAlbumActivity)) {
+                            Intent intent = new Intent(mcContext, MyAlbumActivity.class);
+                            mcContext.startActivity(intent);
+                        }
+                        break;
+                    case 1:
+                        break;
                 }
             }
         });

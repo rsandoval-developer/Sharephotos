@@ -33,8 +33,8 @@ public class MenuFragment extends BaseFragment {
 
         mRecycler = (RecyclerView) v.findViewById(R.id.recycler_menu);
 
-        mItemsList.add(new MenuModel(getString(R.string.comentarios), R.drawable.ic_configuration));
-        mItemsList.add(new MenuModel(getString(R.string.tabla_posiciones), R.drawable.ic_configuration));
+        mItemsList.add(new MenuModel(getString(R.string.mi_album), R.drawable.ic_album));
+        mItemsList.add(new MenuModel(getString(R.string.tabla_posiciones), R.drawable.ic_ratings_photos));
 
         mAdapter = new MenuAdapter(getActivity(), mItemsList, menuListener);
         mRecycler.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));

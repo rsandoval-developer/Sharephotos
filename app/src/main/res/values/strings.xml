@@ -1,9 +1,20 @@
 <resources>
     <string name="app_name">SharePhotos</string>
 
+    <!--FACEBOOK -->
+    <string name="facebook_app_id">902633316500809</string>
+    <string name="app_name_facebook">Shar­e­P­h­o­t­o­s­Test</string>
+    <string name="string_error_publicacion">Error al crear la publicación.</string>
+
     <!-- MENU -->
     <string name="drawer_open">Menú abierto</string>
     <string name="drawer_close">Menú cerrado</string>
-    <string name="comentarios">Comentarios</string>
+    <string name="mi_album">Mi Album</string>
     <string name="tabla_posiciones">Tabla de posiciones</string>
+
+    <!-- DETALLE FOTOS -->
+    <string name="publicar">Publicar</string>
+    <string name="escribe_comentario">Escribe un comentario</string>
+    <string name="string_ok_publicacion">Publicación enviada.</string>
+
 </resources>
