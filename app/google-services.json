@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "110507409949",
+    "project_id": "solid-clarity-91722"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110507409949:android:c38b8026bf499b67",
+        "android_client_info": {
+          "package_name": "com.ia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110507409949-vevm7ljnhd6j4ibvd7ibadkgfid93k0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ28VyPmEL-Ruf0L2QWTjyohEITcDWI4Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110507409949:android:32edb53cc6545b52",
+        "android_client_info": {
+          "package_name": "com.ismael.maile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110507409949-2pb7336kihgvnp5805fs1ic1tl5up2it.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ismael.maile",
+            "certificate_hash": "7D8BD82676A1A45A1D87A1A0651EE5CE40565F4D"
+          }
+        },
+        {
+          "client_id": "110507409949-vevm7ljnhd6j4ibvd7ibadkgfid93k0n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ28VyPmEL-Ruf0L2QWTjyohEITcDWI4Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

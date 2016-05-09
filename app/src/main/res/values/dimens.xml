@@ -6,4 +6,7 @@
     <dimen name="info_user_top">38dp</dimen>
     <dimen name="info_user_bottom">20dp</dimen>
 
+    <dimen name="g_top_margin">100dp</dimen>
+
+
 </resources>

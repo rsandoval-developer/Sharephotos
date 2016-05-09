@@ -13,6 +13,7 @@ import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.ia.sharephotos.R;
 import com.ia.sharephotos.presentation.view.activities.LoginActivity;
 import com.ia.sharephotos.presentation.view.menu.MenuFragment;
@@ -102,9 +103,18 @@ public class BaseActivity extends AppCompatActivity implements MenuListener {
             request.setParameters(parameters);
             request.executeAsync();
         } else {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-            finish();
+            GoogleSignInAccount googleSignInAccount =((Aplicacion) getApplication()).getGoogleSignInAccount();
+            if(googleSignInAccount !=null){
+                Glide.with(BaseActivity.this)
+                        .load(googleSignInAccount.getPhotoUrl())
+                        .into(mPhotoUser);
+                mNameUser.setText(googleSignInAccount.getDisplayName());
+                mEmailUser.setText(googleSignInAccount.getEmail());
+            }else {
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
     }
 }
